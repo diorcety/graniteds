@@ -34,6 +34,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.granite.context.GraniteContext;
+import org.granite.context.GraniteManager;
 import org.granite.logging.Logger;
 import org.granite.messaging.amf.AMF3Constants;
 import org.granite.messaging.amf.io.util.ActionScriptClassDescriptor;
@@ -59,7 +60,7 @@ public class AMF3Deserializer extends DataInputStream implements ObjectInput, AM
     protected final List<Object> storedObjects = new ArrayList<Object>();
     protected final List<ActionScriptClassDescriptor> storedClassDescriptors = new ArrayList<ActionScriptClassDescriptor>();
 
-    protected final GraniteContext context = GraniteContext.getCurrentInstance();
+    protected final GraniteContext context = GraniteManager.getCurrentInstance();
 
     protected final AMF3DeserializerSecurizer securizer = context.getGraniteConfig().getAmf3DeserializerSecurizer();
 
