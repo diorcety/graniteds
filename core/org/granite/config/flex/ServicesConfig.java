@@ -30,6 +30,8 @@ public interface ServicesConfig {
 
     public List<Service> findServicesByMessageType(String messageType);
 
+    public Service findServiceByDestination(String destinationId);
+
     public void addService(Service service);
 
     public void removeService(String service);

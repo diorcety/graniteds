@@ -226,6 +226,18 @@ public class SimpleServicesConfig implements ServicesConfig, ScannedItemHandler 
         }
     }
 
+    public Service findServiceByDestination(String destinationId)
+    {
+        synchronized (services) {
+            for (Service service : this.services.values()) {
+                Destination destination = service.findDestinationById(destinationId);
+                if(destination != null)
+                    return service;
+            }
+            return null;
+        }
+    }
+
     public void addService(Service service) {
         synchronized (services) {
             services.put(service.getId(), service);
